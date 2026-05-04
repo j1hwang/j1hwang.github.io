@@ -7,21 +7,24 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   afterBody: [
     Component.Sunlit(),
-    Component.Comments({
-      provider: "giscus",
-      options: {
-        repo: "j1hwang/j1hwang.github.io",
-        repoId: "R_kgDOSTkF9A",
-        category: "General",
-        categoryId: "DIC_kwDOSTkF9M4C8Uea",
-        mapping: "pathname",
-        strict: false,
-        reactionsEnabled: true,
-        inputPosition: "bottom",
-        lang: "ko",
-        lightTheme: "light",
-        darkTheme: "dark",
-      },
+    Component.ConditionalRender({
+      component: Component.Comments({
+        provider: "giscus",
+        options: {
+          repo: "j1hwang/j1hwang.github.io",
+          repoId: "R_kgDOSTkF9A",
+          category: "General",
+          categoryId: "DIC_kwDOSTkF9M4C8Uea",
+          mapping: "pathname",
+          strict: false,
+          reactionsEnabled: false,
+          inputPosition: "bottom",
+          lang: "ko",
+          lightTheme: "light",
+          darkTheme: "dark",
+        },
+      }),
+      condition: (page) => !!page.fileData.filePath,
     }),
   ],
   footer: Component.Footer({
