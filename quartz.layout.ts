@@ -38,7 +38,20 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      defaultOpenFolders: ["개발자 이야기/2026"],
+      sortFn: (a, b) => {
+        if (a.isFolder && !b.isFolder) return -1
+        if (!a.isFolder && b.isFolder) return 1
+        if (a.isFolder && b.isFolder) {
+          return b.displayName.localeCompare(a.displayName, undefined, { numeric: true, sensitivity: "base" })
+        }
+        const aDate = a.data?.date ? new Date(a.data.date).getTime() : 0
+        const bDate = b.data?.date ? new Date(b.data.date).getTime() : 0
+        if (aDate !== bDate) return bDate - aDate
+        return a.displayName.localeCompare(b.displayName, undefined, { numeric: true, sensitivity: "base" })
+      },
+    }),
   ],
   right: [
     Component.Graph(),
@@ -62,7 +75,20 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      defaultOpenFolders: ["개발자 이야기/2026"],
+      sortFn: (a, b) => {
+        if (a.isFolder && !b.isFolder) return -1
+        if (!a.isFolder && b.isFolder) return 1
+        if (a.isFolder && b.isFolder) {
+          return b.displayName.localeCompare(a.displayName, undefined, { numeric: true, sensitivity: "base" })
+        }
+        const aDate = a.data?.date ? new Date(a.data.date).getTime() : 0
+        const bDate = b.data?.date ? new Date(b.data.date).getTime() : 0
+        if (aDate !== bDate) return bDate - aDate
+        return a.displayName.localeCompare(b.displayName, undefined, { numeric: true, sensitivity: "base" })
+      },
+    }),
   ],
   right: [],
 }
