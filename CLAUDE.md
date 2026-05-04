@@ -5,8 +5,10 @@ Quartz 4 기반 개인 블로그. 콘텐츠는 `content/` 디렉토리에 마크
 ## 개발 서버
 
 ```bash
-npx quartz build --serve
+npx quartz build --serve --port 8081
 ```
+
+포트 8080은 nginx와 충돌하므로 반드시 8081 사용.
 
 ## 콘텐츠 구조
 
