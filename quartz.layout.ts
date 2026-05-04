@@ -5,28 +5,7 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [
-    Component.Sunlit(),
-    Component.ConditionalRender({
-      component: Component.Comments({
-        provider: "giscus",
-        options: {
-          repo: "j1hwang/j1hwang.github.io",
-          repoId: "R_kgDOSTkF9A",
-          category: "General",
-          categoryId: "DIC_kwDOSTkF9M4C8Uea",
-          mapping: "pathname",
-          strict: false,
-          reactionsEnabled: false,
-          inputPosition: "bottom",
-          lang: "ko",
-          lightTheme: "light",
-          darkTheme: "dark",
-        },
-      }),
-      condition: (page) => !!page.fileData.filePath,
-    }),
-  ],
+  afterBody: [Component.Sunlit()],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",
