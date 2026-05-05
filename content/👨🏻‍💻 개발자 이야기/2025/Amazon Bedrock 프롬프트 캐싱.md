@@ -1,5 +1,4 @@
 ---
-title: Amazon Bedrock 프롬프트 캐싱
 date: 2025-07-01
 tags:
   - 데이터

@@ -1,5 +1,4 @@
 ---
-title: 클로드에 Andrej Karpathy 스킬 공유
 date: 2026-05-05
 tags:
   - AI

@@ -1,5 +1,4 @@
 ---
-title: 캡챠 인증 chatGPT 로 통과하기
 date: 2024-10-22
 tags:
   - 개발
