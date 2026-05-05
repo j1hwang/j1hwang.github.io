@@ -38,3 +38,25 @@ Quartz 기본 제공이 아니라 직접 추가한 기능:
 - `tags`: Jekyll의 `categories`와 `tags`를 하나로 병합
 - 이미지 경로: `/assets/img/` → `/static/images/`
 - 파일명: 날짜 prefix(`YYYY-MM-DD-`) 제거
+
+## 이미지 최적화
+
+원본(iPhone 등)을 그대로 올리면 한 장당 2~3MB. 본문 너비가 ~750px이라
+가로 1280px까지만 있어도 Retina 환경에서 충분하다.
+
+폴더 단위 일괄 다운스케일 + 압축 (ImageMagick 필요). zsh는 글로브가
+case-sensitive라 `find -iname`으로 처리:
+
+```bash
+find quartz/static/images/<카테고리> -maxdepth 1 -type f \
+  \( -iname "*.jpg" -o -iname "*.jpeg" \) \
+  -exec magick mogrify -auto-orient -resize '1280x1280>' -quality 80 -strip {} +
+```
+
+- `-resize '1280x1280>'`: 긴 변이 1280px 초과인 이미지만 축소 (작은 건 건드리지 않음)
+- `-quality 80`: JPEG 품질 80 (시각적 차이 거의 없음, 80%+ 절감)
+- `-strip`: EXIF 메타데이터 제거 (추가 절감)
+- `-auto-orient`: EXIF 회전 정보를 픽셀에 반영 후 제거 (회전 깨짐 방지)
+
+PNG(스크린샷 등)는 화질 손상 위험으로 위 명령에서 제외. 큰 PNG는 `pngquant`나
+JPG 변환을 별도 검토. HEIC는 브라우저 미지원이라 JPG로 변환 후 마크다운 참조도 같이 수정 필요.
