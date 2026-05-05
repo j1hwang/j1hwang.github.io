@@ -21,7 +21,7 @@ sortFn: (a, b) => {
 
 ```ts
 Component.Explorer({
-  defaultOpenFolders: ["개발자 이야기/2026"],
+  defaultOpenFolders: ["👨🏻‍💻 개발자 이야기/2026"],
   ...
 })
 ```

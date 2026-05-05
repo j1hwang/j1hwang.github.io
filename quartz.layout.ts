@@ -39,7 +39,7 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-      defaultOpenFolders: ["개발자 이야기/2026"],
+      defaultOpenFolders: ["👨🏻‍💻 개발자 이야기/2026"],
       sortFn: (a, b) => {
         if (a.isFolder && !b.isFolder) return -1
         if (!a.isFolder && b.isFolder) return 1
@@ -76,7 +76,7 @@ export const defaultListPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-      defaultOpenFolders: ["개발자 이야기/2026"],
+      defaultOpenFolders: ["👨🏻‍💻 개발자 이야기/2026"],
       sortFn: (a, b) => {
         if (a.isFolder && !b.isFolder) return -1
         if (!a.isFolder && b.isFolder) return 1

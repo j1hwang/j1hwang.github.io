@@ -92,8 +92,8 @@ frontmatter에 `date` 필드가 있으면 `a-z by-metadata: date` 사용 권장.
 
 ## 현재 볼트 설정
 
-- sortspec 위치: `j1hwang.github.io/개발자 이야기/sortspec.md`
-- 적용 범위: `개발자 이야기` 폴더 및 하위 폴더 전체
+- sortspec 위치: `j1hwang.github.io/👨🏻‍💻 개발자 이야기/sortspec.md`
+- 적용 범위: `👨🏻‍💻 개발자 이야기` 폴더 및 하위 폴더 전체
 - 폴더: 이름 내림차순 (`> a-z`) - 2026 > 2025 > 2024 순서
 - 파일: frontmatter `date` 내림차순 (`> a-z by-metadata: date`)
 
