@@ -1,5 +1,4 @@
 ---
-title: AWS S3 csv 파일 쿼리 시 헤더 무시
 date: 2024-09-26
 tags:
   - 데이터

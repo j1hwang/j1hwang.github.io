@@ -1,5 +1,4 @@
 ---
-title: minitest에서 특정 테스트만 실행하기
 date: 2024-10-14
 tags:
   - 제품개발

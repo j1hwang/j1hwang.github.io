@@ -1,5 +1,4 @@
 ---
-title: 코드 배포에 대한 노트 (Jenkins)
 date: 2025-05-27
 tags:
   - 제품개발

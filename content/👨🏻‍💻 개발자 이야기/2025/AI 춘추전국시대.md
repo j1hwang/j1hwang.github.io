@@ -1,5 +1,4 @@
 ---
-title: AI 춘추전국시대
 date: 2025-09-01
 tags:
   - AI

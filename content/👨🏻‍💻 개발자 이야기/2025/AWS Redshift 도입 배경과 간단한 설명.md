@@ -1,5 +1,4 @@
 ---
-title: AWS Redshift 도입 배경과 간단한 설명
 date: 2025-08-01
 tags:
   - 데이터

@@ -1,5 +1,4 @@
 ---
-title: AI의 신박한 활용 사례
 date: 2024-11-17
 tags:
   - AI

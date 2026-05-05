@@ -1,5 +1,4 @@
 ---
-title: pub-sub 메시지 브로커로서의 Redis
 date: 2025-08-12
 tags:
   - 제품개발

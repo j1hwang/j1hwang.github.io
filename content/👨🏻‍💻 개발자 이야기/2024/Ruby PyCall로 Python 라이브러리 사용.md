@@ -1,5 +1,4 @@
 ---
-title: Ruby PyCall로 Python 라이브러리 사용
 date: 2024-11-10
 tags:
   - 제품개발

@@ -1,5 +1,4 @@
 ---
-title: strace 명령어 활용하기
 date: 2024-10-27
 tags:
   - 제품개발
