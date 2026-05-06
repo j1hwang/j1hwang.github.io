@@ -15,13 +15,32 @@ sortFn: (a, b) => {
 }
 ```
 
+## Explorer 이모지 표시 (`quartz.layout.ts`)
+
+폴더명 자체에는 이모지가 없고, `mapFn`으로 Explorer 표시 시에만 이모지를 붙임:
+
+```ts
+Component.Explorer({
+  mapFn: (node) => {
+    const emojiMap: Record<string, string> = {
+      "개이득 산행": "🐶 개이득 산행",
+      "아이디어": "🌿 아이디어",
+      // ...
+    }
+    if (node.isFolder && emojiMap[node.displayName]) {
+      node.displayName = emojiMap[node.displayName]
+    }
+  },
+})
+```
+
 ## Explorer 기본 펼침 폴더 (`quartz.layout.ts`)
 
 `defaultOpenFolders` 옵션으로 특정 폴더만 기본으로 펼쳐둠:
 
 ```ts
 Component.Explorer({
-  defaultOpenFolders: ["👨🏻‍💻 개발자 이야기/2026"],
+  defaultOpenFolders: ["개발자 이야기/2026"],
   ...
 })
 ```
