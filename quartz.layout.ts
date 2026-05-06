@@ -39,7 +39,20 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-      defaultOpenFolders: ["👨🏻‍💻 개발자 이야기/2026"],
+      defaultOpenFolders: ["개발자 이야기/2026"],
+      mapFn: (node) => {
+        const emojiMap: Record<string, string> = {
+          "개이득 산행": "🐶 개이득 산행",
+          "아이디어": "🌿 아이디어",
+          "스타렉스 자작캠핑카": "🚐 스타렉스 자작캠핑카",
+          "디지털노마드": "🧳 디지털노마드",
+          "뒤늦은 퇴사일기": "✍🏻 뒤늦은 퇴사일기",
+          "개발자 이야기": "👨🏻‍💻 개발자 이야기",
+        }
+        if (node.isFolder && emojiMap[node.displayName]) {
+          node.displayName = emojiMap[node.displayName]
+        }
+      },
       sortFn: (a, b) => {
         if (a.isFolder && !b.isFolder) return -1
         if (!a.isFolder && b.isFolder) return 1
@@ -76,7 +89,20 @@ export const defaultListPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-      defaultOpenFolders: ["👨🏻‍💻 개발자 이야기/2026"],
+      defaultOpenFolders: ["개발자 이야기/2026"],
+      mapFn: (node) => {
+        const emojiMap: Record<string, string> = {
+          "개이득 산행": "🐶 개이득 산행",
+          "아이디어": "🌿 아이디어",
+          "스타렉스 자작캠핑카": "🚐 스타렉스 자작캠핑카",
+          "디지털노마드": "🧳 디지털노마드",
+          "뒤늦은 퇴사일기": "✍🏻 뒤늦은 퇴사일기",
+          "개발자 이야기": "👨🏻‍💻 개발자 이야기",
+        }
+        if (node.isFolder && emojiMap[node.displayName]) {
+          node.displayName = emojiMap[node.displayName]
+        }
+      },
       sortFn: (a, b) => {
         if (a.isFolder && !b.isFolder) return -1
         if (!a.isFolder && b.isFolder) return 1
