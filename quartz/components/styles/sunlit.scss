@@ -1,3 +1,5 @@
+@use "../../styles/variables.scss" as *;
+
 body {
   --sl-day: #faf8f8;
   --sl-evening: #fccc83;
@@ -53,6 +55,15 @@ body.sunlit-dark {
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+body.sunlit-fade-content :not(#dappled-light):not(#dappled-light *) {
+  opacity: 0;
+}
+
+body.sunlit-fade-in :not(#dappled-light):not(#dappled-light *) {
+  transition: opacity 350ms ease;
+  opacity: 1;
 }
 
 #sl-progressive-blur {
@@ -206,4 +217,11 @@ body.sunlit-dark .sl-shutter {
   50%  { transform: perspective(400px) rotateX(-4deg) rotateY(-2deg) scale(0.97); }
   75%  { transform: perspective(400px) rotateX(1deg)  rotateY(-1deg) scale(1.04); }
   100% { transform: perspective(400px) rotateX(0deg)  rotateY(0deg)  scale(1);    }
+}
+
+@media all and ($mobile) {
+  #sl-leaves {
+    filter: none;
+    animation-play-state: paused;
+  }
 }
