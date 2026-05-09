@@ -44,7 +44,7 @@ export const defaultContentPageLayout: PageLayout = {
         const emojiMap: Record<string, string> = {
           "개이득 산행": "🐶 개이득 산행",
           "아이디어": "🌿 아이디어",
-          "스타렉스 자작캠핑카": "🚐 스타렉스 자작캠핑카",
+          "자작캠핑카": "🚐 자작캠핑카",
           "디지털노마드": "🧳 디지털노마드",
           "뒤늦은 퇴사일기": "✍🏻 뒤늦은 퇴사일기",
           "개발자 이야기": "👨🏻‍💻 개발자 이야기",
@@ -94,7 +94,7 @@ export const defaultListPageLayout: PageLayout = {
         const emojiMap: Record<string, string> = {
           "개이득 산행": "🐶 개이득 산행",
           "아이디어": "🌿 아이디어",
-          "스타렉스 자작캠핑카": "🚐 스타렉스 자작캠핑카",
+          "자작캠핑카": "🚐 자작캠핑카",
           "디지털노마드": "🧳 디지털노마드",
           "뒤늦은 퇴사일기": "✍🏻 뒤늦은 퇴사일기",
           "개발자 이야기": "👨🏻‍💻 개발자 이야기",
