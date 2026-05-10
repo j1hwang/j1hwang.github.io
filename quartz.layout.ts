@@ -48,6 +48,8 @@ export const defaultContentPageLayout: PageLayout = {
           "디지털노마드": "🧳 디지털노마드",
           "뒤늦은 퇴사일기": "✍🏻 뒤늦은 퇴사일기",
           "개발자 이야기": "👨🏻‍💻 개발자 이야기",
+          "여행기억 리터칭": "✈️ 여행기억 리터칭",
+          "좋아하는 글들": "🔖 좋아하는 글들",
         }
         if (node.isFolder && emojiMap[node.displayName]) {
           node.displayName = emojiMap[node.displayName]
@@ -98,6 +100,8 @@ export const defaultListPageLayout: PageLayout = {
           "디지털노마드": "🧳 디지털노마드",
           "뒤늦은 퇴사일기": "✍🏻 뒤늦은 퇴사일기",
           "개발자 이야기": "👨🏻‍💻 개발자 이야기",
+          "여행기억 리터칭": "✈️ 여행기억 리터칭",
+          "좋아하는 글들": "🔖 좋아하는 글들",
         }
         if (node.isFolder && emojiMap[node.displayName]) {
           node.displayName = emojiMap[node.displayName]
