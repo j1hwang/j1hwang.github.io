@@ -13,6 +13,7 @@ interface Options {
   limit: number
   linkToMore: SimpleSlug | false
   showTags: boolean
+  categoryMap: Record<string, string>
   filter: (f: QuartzPluginData) => boolean
   sort: (f1: QuartzPluginData, f2: QuartzPluginData) => number
 }
@@ -21,6 +22,7 @@ const defaultOptions = (cfg: GlobalConfiguration): Options => ({
   limit: 3,
   linkToMore: false,
   showTags: true,
+  categoryMap: {},
   filter: () => true,
   sort: byDateAndAlphabetical(cfg),
 })
@@ -42,6 +44,8 @@ export default ((userOpts?: Partial<Options>) => {
           {pages.slice(0, opts.limit).map((page) => {
             const title = page.frontmatter?.title ?? i18n(cfg.locale).propertyDefaults.title
             const tags = page.frontmatter?.tags ?? []
+            const rawCategory = page.slug?.split("/")[0] ?? ""
+            const category = opts.categoryMap[rawCategory] ?? rawCategory
 
             return (
               <li class="recent-li">
@@ -53,9 +57,11 @@ export default ((userOpts?: Partial<Options>) => {
                       </a>
                     </h3>
                   </div>
-                  {page.dates && (
+                  {(category || page.dates) && (
                     <p class="meta">
-                      <Date date={getDate(cfg, page)!} locale={cfg.locale} />
+                      {category && <span>{category}</span>}
+                      {category && page.dates && <span> · </span>}
+                      {page.dates && <Date date={getDate(cfg, page)!} locale={cfg.locale} />}
                     </p>
                   )}
                   {opts.showTags && (

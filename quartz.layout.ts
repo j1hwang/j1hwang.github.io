@@ -67,11 +67,41 @@ export const defaultContentPageLayout: PageLayout = {
         return a.displayName.localeCompare(b.displayName, undefined, { numeric: true, sensitivity: "base" })
       },
     }),
+    Component.DesktopOnly(Component.RecentNotes({
+      limit: 3,
+      filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
+      showTags: false,
+      categoryMap: {
+        "개이득-산행": "🐶 개이득 산행",
+        "아이디어": "🌿 아이디어",
+        "자작캠핑카": "🚐 자작캠핑카",
+        "디지털노마드": "🧳 디지털노마드",
+        "뒤늦은-퇴사일기": "✍🏻 뒤늦은 퇴사일기",
+        "개발자-이야기": "👨🏻‍💻 개발자 이야기",
+        "여행기억-리터칭": "✈️ 여행기억 리터칭",
+        "좋아하는-글들": "🔖 좋아하는 글들",
+      },
+    })),
   ],
   right: [
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
+    Component.MobileOnly(Component.RecentNotes({
+      limit: 3,
+      filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
+      showTags: false,
+      categoryMap: {
+        "개이득-산행": "🐶 개이득 산행",
+        "아이디어": "🌿 아이디어",
+        "자작캠핑카": "🚐 자작캠핑카",
+        "디지털노마드": "🧳 디지털노마드",
+        "뒤늦은-퇴사일기": "✍🏻 뒤늦은 퇴사일기",
+        "개발자-이야기": "👨🏻‍💻 개발자 이야기",
+        "여행기억-리터칭": "✈️ 여행기억 리터칭",
+        "좋아하는-글들": "🔖 좋아하는 글들",
+      },
+    })),
   ],
 }
 
@@ -119,6 +149,37 @@ export const defaultListPageLayout: PageLayout = {
         return a.displayName.localeCompare(b.displayName, undefined, { numeric: true, sensitivity: "base" })
       },
     }),
+    Component.DesktopOnly(Component.RecentNotes({
+      limit: 3,
+      filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
+      showTags: false,
+      categoryMap: {
+        "개이득-산행": "🐶 개이득 산행",
+        "아이디어": "🌿 아이디어",
+        "자작캠핑카": "🚐 자작캠핑카",
+        "디지털노마드": "🧳 디지털노마드",
+        "뒤늦은-퇴사일기": "✍🏻 뒤늦은 퇴사일기",
+        "개발자-이야기": "👨🏻‍💻 개발자 이야기",
+        "여행기억-리터칭": "✈️ 여행기억 리터칭",
+        "좋아하는-글들": "🔖 좋아하는 글들",
+      },
+    })),
   ],
-  right: [],
+  right: [
+    Component.MobileOnly(Component.RecentNotes({
+      limit: 3,
+      filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
+      showTags: false,
+      categoryMap: {
+        "개이득-산행": "🐶 개이득 산행",
+        "아이디어": "🌿 아이디어",
+        "자작캠핑카": "🚐 자작캠핑카",
+        "디지털노마드": "🧳 디지털노마드",
+        "뒤늦은-퇴사일기": "✍🏻 뒤늦은 퇴사일기",
+        "개발자-이야기": "👨🏻‍💻 개발자 이야기",
+        "여행기억-리터칭": "✈️ 여행기억 리터칭",
+        "좋아하는-글들": "🔖 좋아하는 글들",
+      },
+    })),
+  ],
 }
