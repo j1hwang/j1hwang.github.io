@@ -67,6 +67,12 @@ Explorer 이모지 매핑은 `quartz.layout.ts`의 `emojiMap` 객체에서 관�
 - 캡션은 `<em>...</em>` 사용
 - `![[파일명]]`가 아닌 `<img src="/static/images/...">` 절대 경로 사용
 
+### Quartz slug 변환 규칙
+
+Quartz의 `sluggify`는 폴더명·파일명의 **공백을 하이픈으로 변환**한다.
+예: `개발자 이야기` → `개발자-이야기`
+`categoryMap` 등 slug 기반 키 매핑 시 반드시 하이픈 형식 사용.
+
 ## 포스트 front matter 형식
 
 ```yaml

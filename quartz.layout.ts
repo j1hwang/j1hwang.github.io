@@ -67,6 +67,21 @@ export const defaultContentPageLayout: PageLayout = {
         return a.displayName.localeCompare(b.displayName, undefined, { numeric: true, sensitivity: "base" })
       },
     }),
+    Component.RecentNotes({
+      limit: 3,
+      filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
+      showTags: false,
+      categoryMap: {
+        "개이득-산행": "🐶 개이득 산행",
+        "아이디어": "🌿 아이디어",
+        "자작캠핑카": "🚐 자작캠핑카",
+        "디지털노마드": "🧳 디지털노마드",
+        "뒤늦은-퇴사일기": "✍🏻 뒤늦은 퇴사일기",
+        "개발자-이야기": "👨🏻‍💻 개발자 이야기",
+        "여행기억-리터칭": "✈️ 여행기억 리터칭",
+        "좋아하는-글들": "🔖 좋아하는 글들",
+      },
+    }),
   ],
   right: [
     Component.Graph(),
@@ -117,6 +132,21 @@ export const defaultListPageLayout: PageLayout = {
         const bDate = b.data?.date ? new Date(b.data.date).getTime() : 0
         if (aDate !== bDate) return bDate - aDate
         return a.displayName.localeCompare(b.displayName, undefined, { numeric: true, sensitivity: "base" })
+      },
+    }),
+    Component.RecentNotes({
+      limit: 3,
+      filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
+      showTags: false,
+      categoryMap: {
+        "개이득-산행": "🐶 개이득 산행",
+        "아이디어": "🌿 아이디어",
+        "자작캠핑카": "🚐 자작캠핑카",
+        "디지털노마드": "🧳 디지털노마드",
+        "뒤늦은-퇴사일기": "✍🏻 뒤늦은 퇴사일기",
+        "개발자-이야기": "👨🏻‍💻 개발자 이야기",
+        "여행기억-리터칭": "✈️ 여행기억 리터칭",
+        "좋아하는-글들": "🔖 좋아하는 글들",
       },
     }),
   ],
