@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    baseUrl: "j1hwang.cc",
     ignorePatterns: ["private", "templates", ".obsidian", "**/sortspec.md", "CLAUDE.md", "**/.claude"],
     defaultDateType: "created",
     theme: {
