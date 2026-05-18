@@ -49,6 +49,18 @@ Quartz 기본 제공이 아니라 직접 추가한 기능:
 - `quartz/components/Explorer.tsx` — `Options` 인터페이스에 `defaultOpenFolders: string[]` 추가, `data-defaultopen` 속성으로 전달
 - `quartz/components/scripts/explorer.inline.ts` — `ParsedOptions`에 필드 추가, 초기 상태 계산 시 해당 경로는 `collapsed: false`로 처리 (`path.endsWith(f)` 매칭)
 
+## 각주 되돌아가기 기호 숨김 (`quartz/styles/base.scss`)
+
+각주 렌더링 시 자동으로 붙는 ↩ 기호(`a[data-footnote-backref]`)를 숨김:
+
+```scss
+.footnotes {
+  a[data-footnote-backref] {
+    display: none;
+  }
+}
+```
+
 ## Jekyll 마이그레이션 변환 규칙
 
 소스: `~/jekyll-archive/_posts/`
