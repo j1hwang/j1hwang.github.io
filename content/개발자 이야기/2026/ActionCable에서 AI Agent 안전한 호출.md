@@ -7,7 +7,7 @@ tags:
   - RubyOnRails
   - LLM
   - Agent
-description:
+description: Agent 비동기 호출하여 Puma thread 고갈 방지하기
 ---
 ## 기존 방식의 문제
 
