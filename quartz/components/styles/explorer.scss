@@ -16,9 +16,9 @@
     .sidebar.left:has(.explorer) {
       box-sizing: border-box;
       position: sticky;
-      background-color: transparent;
-      padding: 1rem 0 1rem 0;
-      margin: 0;
+      background-color: color-mix(in srgb, var(--light) 88%, var(--sl-bounce));
+      padding: 1rem 1rem;
+      margin: 0 -1rem;
     }
 
     .hide-until-loaded ~ .explorer-content {
@@ -264,7 +264,7 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
         transform 200ms ease,
         visibility 200ms ease;
       overflow: hidden;
-      padding: 4rem 0 2rem 0;
+      padding: 4rem 1rem 2rem 1rem;
       height: 100dvh;
       max-height: 100dvh;
       visibility: hidden;
