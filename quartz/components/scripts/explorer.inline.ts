@@ -112,6 +112,11 @@ function createFolderNode(
   const folderPath = node.slug
   folderContainer.dataset.folderpath = folderPath
 
+  const ARCHIVED_FOLDERS = ["뒤늦은-퇴사일기", "디지털노마드"]
+  if (ARCHIVED_FOLDERS.includes(node.slugSegment)) {
+    li.classList.add("explorer-archived")
+  }
+
   if (currentSlug === folderPath) {
     folderContainer.classList.add("active")
   }
