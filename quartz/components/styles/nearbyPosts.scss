@@ -1,0 +1,118 @@
+@use "../../styles/variables.scss" as *;
+
+.nearby-posts-wrapper {
+  margin-top: 2.5rem;
+
+  &::after {
+    display: block;
+    content: "* * *";
+    text-align: center;
+    color: var(--gray);
+    font-size: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    margin-top: 1.5rem;
+  }
+}
+
+.nearby-posts {
+  border: 1px solid color-mix(in srgb, var(--gray) 50%, var(--lightgray));
+  border-radius: 8px;
+  padding: 1rem 1.25rem 1.25rem;
+
+  .nearby-header {
+    margin: 0;
+    padding-bottom: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0.6;
+    border-bottom: 1px solid var(--lightgray);
+  }
+
+  ul.nearby-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+  }
+
+  li.nearby-item {
+    display: grid;
+    grid-template-columns: 8em 1fr;
+    padding: 0.35em 0.5em;
+    border-radius: 4px;
+    align-items: baseline;
+
+    .nearby-date {
+      opacity: 0.5;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .nearby-title {
+      font-size: 0.9rem;
+
+      a {
+        background-color: transparent;
+        color: var(--dark);
+      }
+    }
+
+    &.current {
+      background-color: color-mix(in srgb, var(--highlight) 60%, transparent);
+
+      .nearby-title span {
+        font-weight: 600;
+        color: var(--secondary);
+      }
+    }
+
+    @media all and ($mobile) {
+      grid-template-columns: 6em 1fr;
+
+      .nearby-date {
+        font-size: 0.75rem;
+      }
+
+      .nearby-title {
+        font-size: 0.85rem;
+      }
+    }
+  }
+
+  .nearby-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.75em;
+
+    .pagination-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 2em;
+      padding: 0 0.75em;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      background-color: transparent;
+      color: var(--dark);
+      border: 1px solid var(--gray);
+      cursor: pointer;
+      transition: background-color 0.1s ease;
+
+      &:hover:not(.disabled) {
+        background-color: var(--lightgray);
+      }
+
+      &.disabled {
+        opacity: 0.35;
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+
+    .nearby-position {
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+  }
+}
