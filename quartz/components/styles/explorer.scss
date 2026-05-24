@@ -229,6 +229,18 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
   color: var(--tertiary);
 }
 
+.explorer-ul > li.explorer-archived {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--lightgray);
+}
+
+.explorer-ul > li.explorer-archived ~ li.explorer-archived {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
 .explorer {
   @media all and ($mobile) {
     &.collapsed {

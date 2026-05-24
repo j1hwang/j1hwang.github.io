@@ -51,10 +51,22 @@ export const defaultContentPageLayout: PageLayout = {
         }
       },
       sortFn: (a, b) => {
+        const ARCHIVED = ["디지털노마드", "뒤늦은-퇴사일기"]
+        const FOLDER_ORDER = ["아이디어", "개발자-이야기", "여행기억-리터칭", "자작캠핑카", "개이득-산행", "좋아하는-글들"]
+        const aArchived = a.isFolder && ARCHIVED.includes(a.slugSegment)
+        const bArchived = b.isFolder && ARCHIVED.includes(b.slugSegment)
+        if (aArchived && !bArchived) return 1
+        if (!aArchived && bArchived) return -1
         if (a.isFolder && !b.isFolder) return -1
         if (!a.isFolder && b.isFolder) return 1
         if (a.isFolder && b.isFolder) {
-          return b.displayName.localeCompare(a.displayName, undefined, { numeric: true, sensitivity: "base" })
+          if (aArchived && bArchived) return ARCHIVED.indexOf(a.slugSegment) - ARCHIVED.indexOf(b.slugSegment)
+          const aIdx = FOLDER_ORDER.indexOf(a.slugSegment)
+          const bIdx = FOLDER_ORDER.indexOf(b.slugSegment)
+          if (aIdx !== -1 && bIdx !== -1) return aIdx - bIdx
+          if (aIdx !== -1) return -1
+          if (bIdx !== -1) return 1
+          return a.displayName.localeCompare(b.displayName, undefined, { numeric: true, sensitivity: "base" })
         }
         const aDate = a.data?.date ? new Date(a.data.date).getTime() : 0
         const bDate = b.data?.date ? new Date(b.data.date).getTime() : 0
@@ -133,10 +145,22 @@ export const defaultListPageLayout: PageLayout = {
         }
       },
       sortFn: (a, b) => {
+        const ARCHIVED = ["디지털노마드", "뒤늦은-퇴사일기"]
+        const FOLDER_ORDER = ["아이디어", "개발자-이야기", "여행기억-리터칭", "자작캠핑카", "개이득-산행", "좋아하는-글들"]
+        const aArchived = a.isFolder && ARCHIVED.includes(a.slugSegment)
+        const bArchived = b.isFolder && ARCHIVED.includes(b.slugSegment)
+        if (aArchived && !bArchived) return 1
+        if (!aArchived && bArchived) return -1
         if (a.isFolder && !b.isFolder) return -1
         if (!a.isFolder && b.isFolder) return 1
         if (a.isFolder && b.isFolder) {
-          return b.displayName.localeCompare(a.displayName, undefined, { numeric: true, sensitivity: "base" })
+          if (aArchived && bArchived) return ARCHIVED.indexOf(a.slugSegment) - ARCHIVED.indexOf(b.slugSegment)
+          const aIdx = FOLDER_ORDER.indexOf(a.slugSegment)
+          const bIdx = FOLDER_ORDER.indexOf(b.slugSegment)
+          if (aIdx !== -1 && bIdx !== -1) return aIdx - bIdx
+          if (aIdx !== -1) return -1
+          if (bIdx !== -1) return 1
+          return a.displayName.localeCompare(b.displayName, undefined, { numeric: true, sensitivity: "base" })
         }
         const aDate = a.data?.date ? new Date(a.data.date).getTime() : 0
         const bDate = b.data?.date ? new Date(b.data.date).getTime() : 0
