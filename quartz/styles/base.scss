@@ -578,6 +578,15 @@ p > img + em {
   text-align: center;
 }
 
+video + p {
+  margin-top: 0;
+
+  & > em {
+    display: block;
+    text-align: center;
+  }
+}
+
 hr {
   border: none;
   text-align: center;
