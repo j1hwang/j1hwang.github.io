@@ -74,8 +74,13 @@ export const defaultContentPageLayout: PageLayout = {
         return a.displayName.localeCompare(b.displayName, undefined, { numeric: true, sensitivity: "base" })
       },
     }),
+  ],
+  right: [
+    Component.Graph(),
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Backlinks(),
     Component.DesktopOnly(Component.RecentNotes({
-      limit: 3,
+      limit: 5,
       filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
       showTags: false,
       categoryMap: {
@@ -89,11 +94,6 @@ export const defaultContentPageLayout: PageLayout = {
         "좋아하는-글들": "🔖 좋아하는 글들",
       },
     })),
-  ],
-  right: [
-    Component.Graph(),
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
     Component.MobileOnly(Component.RecentNotes({
       limit: 3,
       filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
@@ -168,8 +168,10 @@ export const defaultListPageLayout: PageLayout = {
         return a.displayName.localeCompare(b.displayName, undefined, { numeric: true, sensitivity: "base" })
       },
     }),
+  ],
+  right: [
     Component.DesktopOnly(Component.RecentNotes({
-      limit: 3,
+      limit: 5,
       filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
       showTags: false,
       categoryMap: {
@@ -183,8 +185,6 @@ export const defaultListPageLayout: PageLayout = {
         "좋아하는-글들": "🔖 좋아하는 글들",
       },
     })),
-  ],
-  right: [
     Component.MobileOnly(Component.RecentNotes({
       limit: 3,
       filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",

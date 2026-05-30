@@ -61,6 +61,34 @@ Quartz 기본 제공이 아니라 직접 추가한 기능:
 }
 ```
 
+## PopularNotes 컴포넌트 (비활성)
+
+백링크 수 기준으로 인기 글 상위 N개를 표시하는 커스텀 컴포넌트.
+파일: `quartz/components/PopularNotes.tsx`
+등록: `quartz/components/index.ts`에 이미 export됨
+
+사용 시 `quartz.layout.ts`의 `right` 배열에 아래 추가:
+
+```ts
+Component.DesktopOnly(Component.PopularNotes({
+  limit: 3,
+  filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
+  categoryMap: {
+    "개이득-산행": "🐶 개이득 산행",
+    "아이디어": "🌿 아이디어",
+    "자작캠핑카": "🚐 자작캠핑카",
+    "디지털노마드": "🧳 디지털노마드",
+    "뒤늦은-퇴사일기": "✍🏻 뒤늦은 퇴사일기",
+    "개발자-이야기": "👨🏻‍💻 개발자 이야기",
+    "여행기억-리터칭": "✈️ 여행기억 리터칭",
+    "좋아하는-글들": "🔖 좋아하는 글들",
+  },
+})),
+```
+
+동작 방식: 모든 파일의 `links` 배열을 순회해 피링크 수를 집계 → 내림차순 정렬 → 상위 N개 표시.
+`title` 옵션으로 헤더 텍스트 변경 가능 (기본값: "Popular Notes").
+
 ## Jekyll 마이그레이션 변환 규칙
 
 소스: `~/jekyll-archive/_posts/`

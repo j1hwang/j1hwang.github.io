@@ -25,6 +25,7 @@ import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import Sunlit from "./Sunlit"
 import NearbyPosts from "./NearbyPosts"
+import PopularNotes from "./PopularNotes"
 
 export {
   ArticleTitle,
@@ -54,4 +55,5 @@ export {
   ConditionalRender,
   Sunlit,
   NearbyPosts,
+  PopularNotes,
 }
