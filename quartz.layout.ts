@@ -37,7 +37,8 @@ export const defaultContentPageLayout: PageLayout = {
       defaultOpenFolders: ["개발자 이야기/2026"],
       mapFn: (node) => {
         const emojiMap: Record<string, string> = {
-          "개이득 산행": "🐶 개이득 산행",
+          "레아아범 육견일기": "🐶 레아아범 육견일기",
+          "개이득 산행": "🦮 개이득 산행",
           "아이디어": "🌿 아이디어",
           "자작캠핑카": "🚐 자작캠핑카",
           "디지털노마드": "🧳 디지털노마드",
@@ -52,7 +53,7 @@ export const defaultContentPageLayout: PageLayout = {
       },
       sortFn: (a, b) => {
         const ARCHIVED = ["디지털노마드", "뒤늦은-퇴사일기"]
-        const FOLDER_ORDER = ["아이디어", "개발자-이야기", "여행기억-리터칭", "자작캠핑카", "개이득-산행", "좋아하는-글들"]
+        const FOLDER_ORDER = ["아이디어", "개발자-이야기", "여행기억-리터칭", "자작캠핑카", "개이득-산행", "레아아범-육견일기", "좋아하는-글들"]
         const aArchived = a.isFolder && ARCHIVED.includes(a.slugSegment)
         const bArchived = b.isFolder && ARCHIVED.includes(b.slugSegment)
         if (aArchived && !bArchived) return 1
@@ -84,7 +85,8 @@ export const defaultContentPageLayout: PageLayout = {
       filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
       showTags: false,
       categoryMap: {
-        "개이득-산행": "🐶 개이득 산행",
+        "레아아범-육견일기": "🐶 레아아범 육견일기",
+        "개이득-산행": "🦮 개이득 산행",
         "아이디어": "🌿 아이디어",
         "자작캠핑카": "🚐 자작캠핑카",
         "디지털노마드": "🧳 디지털노마드",
@@ -99,7 +101,8 @@ export const defaultContentPageLayout: PageLayout = {
       filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
       showTags: false,
       categoryMap: {
-        "개이득-산행": "🐶 개이득 산행",
+        "레아아범-육견일기": "🐶 레아아범 육견일기",
+        "개이득-산행": "🦮 개이득 산행",
         "아이디어": "🌿 아이디어",
         "자작캠핑카": "🚐 자작캠핑카",
         "디지털노마드": "🧳 디지털노마드",
@@ -131,7 +134,8 @@ export const defaultListPageLayout: PageLayout = {
       defaultOpenFolders: ["개발자 이야기/2026"],
       mapFn: (node) => {
         const emojiMap: Record<string, string> = {
-          "개이득 산행": "🐶 개이득 산행",
+          "레아아범 육견일기": "🐶 레아아범 육견일기",
+          "개이득 산행": "🦮 개이득 산행",
           "아이디어": "🌿 아이디어",
           "자작캠핑카": "🚐 자작캠핑카",
           "디지털노마드": "🧳 디지털노마드",
@@ -146,7 +150,7 @@ export const defaultListPageLayout: PageLayout = {
       },
       sortFn: (a, b) => {
         const ARCHIVED = ["디지털노마드", "뒤늦은-퇴사일기"]
-        const FOLDER_ORDER = ["아이디어", "개발자-이야기", "여행기억-리터칭", "자작캠핑카", "개이득-산행", "좋아하는-글들"]
+        const FOLDER_ORDER = ["아이디어", "개발자-이야기", "여행기억-리터칭", "자작캠핑카", "개이득-산행", "레아아범-육견일기", "좋아하는-글들"]
         const aArchived = a.isFolder && ARCHIVED.includes(a.slugSegment)
         const bArchived = b.isFolder && ARCHIVED.includes(b.slugSegment)
         if (aArchived && !bArchived) return 1
@@ -175,7 +179,8 @@ export const defaultListPageLayout: PageLayout = {
       filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
       showTags: false,
       categoryMap: {
-        "개이득-산행": "🐶 개이득 산행",
+        "레아아범-육견일기": "🐶 레아아범 육견일기",
+        "개이득-산행": "🦮 개이득 산행",
         "아이디어": "🌿 아이디어",
         "자작캠핑카": "🚐 자작캠핑카",
         "디지털노마드": "🧳 디지털노마드",
@@ -190,7 +195,8 @@ export const defaultListPageLayout: PageLayout = {
       filter: (f) => !f.slug?.endsWith("/index") && f.slug !== "index",
       showTags: false,
       categoryMap: {
-        "개이득-산행": "🐶 개이득 산행",
+        "레아아범-육견일기": "🐶 레아아범 육견일기",
+        "개이득-산행": "🦮 개이득 산행",
         "아이디어": "🌿 아이디어",
         "자작캠핑카": "🚐 자작캠핑카",
         "디지털노마드": "🧳 디지털노마드",

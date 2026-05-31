@@ -15,6 +15,7 @@ npx quartz build --serve --port 8081
 카테고리 폴더 목록 (폴더명은 이모지 없음):
 
 - `content/개발자 이야기/2024/`, `2025/`, `2026/` — 개발 관련 글, 년도별 폴더 분리
+- `content/레아아범 육견일기/` — 반려견 레아 일상 기록
 - `content/개이득 산행/` — 반려견 동반 산행 후기
 - `content/디지털노마드/` — 워케이션/해외 원격근무 후기
 - `content/아이디어/` — 단상, 생각 정리
@@ -30,13 +31,14 @@ npx quartz build --serve --port 8081
 | 카테고리 | 규칙 | 예시 |
 |---|---|---|
 | 개발자 이야기 | `YYYYMMDD_설명.png` | `20241022_captcha_example_1.png` |
+| 레아아범 육견일기 | `YYYYMMDD_설명.jpg` (날짜는 frontmatter date 기준) | `20260529_leah_first_meet.jpg` |
 | 뒤늦은 퇴사일기, 여행기억 리터칭, 아이디어 | `{포스트 제목}_{번호}.jpg` | `왜 남미였나_1.jpg`, `핀란드의 날씨_2.jpg` |
 | 개이득 산행, 자작캠핑카, 디지털노마드 | 아이폰 원본 파일명 그대로 | `IMG_1297.jpg` |
 
 Explorer 이모지 매핑은 `quartz.layout.ts`의 `emojiMap` 객체에서 관리 (좌/우 레이아웃 두 곳 모두 동일하게 추가 필요)
 
 Explorer 카테고리 순서 및 archived 구분선은 `quartz.layout.ts`의 `sortFn` 내 두 배열로 관리:
-- `FOLDER_ORDER` — 상단 카테고리 표시 순서 (현재: 아이디어 → 개발자 이야기 → 여행기억 리터칭 → 자작캠핑카 → 개이득 산행 → 좋아하는 글들)
+- `FOLDER_ORDER` — 상단 카테고리 표시 순서 (현재: 아이디어 → 개발자 이야기 → 여행기억 리터칭 → 자작캠핑카 → 개이득 산행 → 레아아범 육견일기 → 좋아하는 글들)
 - `ARCHIVED` — 구분선 아래 archived 카테고리 순서 (현재: 디지털노마드 → 뒤늦은 퇴사일기)
 - slug 형식 사용 (공백 → 하이픈): 예: `개발자-이야기`, `뒤늦은-퇴사일기`
 - `explorer.inline.ts`의 `ARCHIVED_FOLDERS` 배열도 동일하게 유지 필요 (CSS 클래스 부여용)
