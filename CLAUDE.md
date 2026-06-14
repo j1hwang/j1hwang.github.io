@@ -62,7 +62,7 @@ Explorer 카테고리 순서 및 archived 구분선은 `quartz.layout.ts`의 `so
 
 ```markdown
 ![[파일명.jpg]]
-*캡션 텍스트*
+_캡션 텍스트_
 ```
 
 - 캡션은 이미지 바로 아래 `*이탤릭*` 마크다운 사용 (HTML 태그 금지)

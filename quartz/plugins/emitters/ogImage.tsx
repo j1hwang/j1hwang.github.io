@@ -109,6 +109,12 @@ export const CustomOgImages: QuartzEmitterPlugin<Partial<SocialImageOptions>> = 
     getQuartzComponents() {
       return []
     },
+    // OG image generation disabled: first content image or default fallback is used instead.
+    // To re-enable, restore the original emit/partialEmit below.
+    async *emit(_ctx, _content, _resources) {},
+    async *partialEmit(_ctx, _content, _resources, _changeEvents) {},
+
+    /* --- original emit (kept for rollback) ---
     async *emit(ctx, content, _resources) {
       const cfg = ctx.cfg.configuration
       const headerFont = cfg.theme.typography.header
@@ -126,7 +132,6 @@ export const CustomOgImages: QuartzEmitterPlugin<Partial<SocialImageOptions>> = 
       const bodyFont = cfg.theme.typography.body
       const fonts = await getSatoriFonts(headerFont, bodyFont)
 
-      // find all slugs that changed or were added
       for (const changeEvent of changeEvents) {
         if (!changeEvent.file) continue
         if (changeEvent.file.data.frontmatter?.socialImage !== undefined) continue
@@ -135,6 +140,7 @@ export const CustomOgImages: QuartzEmitterPlugin<Partial<SocialImageOptions>> = 
         }
       }
     },
+    --- end original emit --- */
     externalResources: (ctx) => {
       if (!ctx.cfg.configuration.baseUrl) {
         return {}
@@ -144,30 +150,38 @@ export const CustomOgImages: QuartzEmitterPlugin<Partial<SocialImageOptions>> = 
       return {
         additionalHead: [
           (pageData) => {
-            const isRealFile = pageData.filePath !== undefined
+            // 1순위: frontmatter의 socialImage (수동 지정)
             let userDefinedOgImagePath = pageData.frontmatter?.socialImage
-
             if (userDefinedOgImagePath) {
               userDefinedOgImagePath = isAbsoluteURL(userDefinedOgImagePath)
                 ? userDefinedOgImagePath
                 : `https://${baseUrl}/static/${userDefinedOgImagePath}`
             }
 
+            // 2순위: 글 본문의 첫 번째 이미지 (자동 추출)
+            // 상대 경로(예: ../static/...)는 slug의 부모 디렉토리 기준으로 절대 URL로 변환
+            let firstContentImagePath = pageData.firstContentImage
+            if (firstContentImagePath && !isAbsoluteURL(firstContentImagePath)) {
+              const slugDir = (pageData.slug ?? "").split("/").slice(0, -1).join("/")
+              const pageBase = `https://${baseUrl}/${slugDir ? slugDir + "/" : ""}`
+              firstContentImagePath = new URL(firstContentImagePath, pageBase).href
+            }
+
+            // 3순위: 기본 폴백 이미지
+            const defaultOgImagePath = `https://${baseUrl}/static/images/default_og_image.png`
+
+            /* --- original fallback (kept for rollback) ---
             const generatedOgImagePath = isRealFile
               ? `https://${baseUrl}/${pageData.slug!}-og-image.webp`
               : undefined
             const defaultOgImagePath = `https://${baseUrl}/static/og-image.png`
             const ogImagePath = userDefinedOgImagePath ?? generatedOgImagePath ?? defaultOgImagePath
+            --- end original fallback --- */
+
+            const ogImagePath = userDefinedOgImagePath ?? firstContentImagePath ?? defaultOgImagePath
             const ogImageMimeType = `image/${getFileExtension(ogImagePath) ?? "png"}`
             return (
               <>
-                {!userDefinedOgImagePath && (
-                  <>
-                    <meta property="og:image:width" content={fullOptions.width.toString()} />
-                    <meta property="og:image:height" content={fullOptions.height.toString()} />
-                  </>
-                )}
-
                 <meta property="og:image" content={ogImagePath} />
                 <meta property="og:image:url" content={ogImagePath} />
                 <meta name="twitter:image" content={ogImagePath} />
