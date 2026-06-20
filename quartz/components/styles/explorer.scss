@@ -229,6 +229,15 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
   color: var(--tertiary);
 }
 
+.explorer-ul > li:has(> a[href$="/archive"]) > a {
+  font-size: 0.95rem !important;
+  font-family: var(--headerFont);
+  font-weight: $semiBoldWeight;
+  color: var(--secondary) !important;
+  opacity: 1 !important;
+  background-color: transparent !important;
+}
+
 .explorer-ul > li.explorer-archived {
   margin-top: 0.75rem;
   padding-top: 0.5rem;

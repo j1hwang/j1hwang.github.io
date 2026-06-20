@@ -47,6 +47,12 @@ Explorer 카테고리 순서 및 archived 구분선은 `quartz.layout.ts`의 `so
 - slug 형식 사용 (공백 → 하이픈): 예: `개발자-이야기`, `뒤늦은-퇴사일기`
 - `explorer.inline.ts`의 `ARCHIVED_FOLDERS` 배열도 동일하게 유지 필요 (CSS 클래스 부여용)
 
+카테고리 추가/수정/삭제 요청이 오면 아래 항목을 빠짐없이 함께 수정할 것:
+1. `quartz.layout.ts` — `emojiMap`, `FOLDER_ORDER`, `ARCHIVED` (좌/우 레이아웃 두 곳), `RecentNotes` `categoryMap` (좌/우 두 곳)
+2. `quartz/components/scripts/explorer.inline.ts` — `ARCHIVED_FOLDERS`
+3. `quartz/components/Archive.tsx` — `categoryMap`
+4. `CLAUDE.md` — 카테고리 폴더 목록, 이미지 파일명 규칙 표, `FOLDER_ORDER` 현재 순서 주석
+
 마크다운에서는 `![[파일명]]` 위키링크로 참조. Quartz가 `quartz/static/` 하위 전체를 파일명으로 검색하므로 서브폴더에 있어도 경로 불필요. `![[서브폴더/파일명]]` 형식은 동작하지 않음.
 
 ### 카테고리 index.md

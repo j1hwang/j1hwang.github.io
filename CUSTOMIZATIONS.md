@@ -89,6 +89,23 @@ Component.DesktopOnly(Component.PopularNotes({
 동작 방식: 모든 파일의 `links` 배열을 순회해 피링크 수를 집계 → 내림차순 정렬 → 상위 N개 표시.
 `title` 옵션으로 헤더 텍스트 변경 가능 (기본값: "Popular Notes").
 
+## Archive 페이지 (전체 글 목록)
+
+날짜순 전체 글 목록 + 클라이언트사이드 페이지네이션.
+
+관련 파일:
+- `content/archive.md` — 진입점 (title: 전체 글 목록)
+- `quartz/components/Archive.tsx` — 목록 렌더링 + 페이지네이션 스크립트
+- `quartz/components/ArchiveLink.tsx` — 사이드바 링크 (데스크탑 전용, hover 시에만 표시)
+- `quartz/components/styles/archive.scss` — 스타일
+- `quartz.layout.ts` — `defaultContentPageLayout.beforeBody`에 `ConditionalRender`로 archive 슬러그일 때만 렌더, `left`에 `DesktopOnly(ArchiveLink())` 추가
+
+### 카테고리 추가/수정/삭제 시 함께 수정할 곳
+
+1. `quartz/components/Archive.tsx` — `categoryMap` 객체
+2. `quartz.layout.ts` — Explorer `emojiMap`, `FOLDER_ORDER`, `ARCHIVED`, `filterFn` / `RecentNotes` `categoryMap` (좌우 레이아웃 두 곳)
+3. `quartz/components/scripts/explorer.inline.ts` — `ARCHIVED_FOLDERS` 배열 (CSS 클래스용)
+
 ## Jekyll 마이그레이션 변환 규칙
 
 소스: `~/jekyll-archive/_posts/`

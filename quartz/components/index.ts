@@ -26,6 +26,8 @@ import ConditionalRender from "./ConditionalRender"
 import Sunlit from "./Sunlit"
 import NearbyPosts from "./NearbyPosts"
 import PopularNotes from "./PopularNotes"
+import Archive from "./Archive"
+import ArchiveLink from "./ArchiveLink"
 
 export {
   ArticleTitle,
@@ -56,4 +58,6 @@ export {
   Sunlit,
   NearbyPosts,
   PopularNotes,
+  Archive,
+  ArchiveLink,
 }

@@ -5,7 +5,13 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [Component.NearbyPosts(), Component.Sunlit()],
+  afterBody: [
+    Component.ConditionalRender({
+      component: Component.NearbyPosts(),
+      condition: (page) => page.fileData.slug !== "archive",
+    }),
+    Component.Sunlit(),
+  ],
   footer: Component.Footer(),
 }
 
@@ -19,6 +25,10 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
+    Component.ConditionalRender({
+      component: Component.Archive(),
+      condition: (page) => page.fileData.slug === "archive",
+    }),
   ],
   left: [
     Component.PageTitle(),
@@ -33,6 +43,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
+    Component.DesktopOnly(Component.ArchiveLink()),
     Component.Explorer({
       defaultOpenFolders: ["개발자 이야기/2026"],
       mapFn: (node) => {
@@ -51,6 +62,7 @@ export const defaultContentPageLayout: PageLayout = {
           node.displayName = emojiMap[node.displayName]
         }
       },
+      filterFn: (node) => node.slugSegment !== "archive",
       sortFn: (a, b) => {
         const ARCHIVED = ["디지털노마드", "뒤늦은-퇴사일기"]
         const FOLDER_ORDER = ["아이디어", "개발자-이야기", "여행기억-리터칭", "자작캠핑카", "개이득-산행", "레아아범-육견일기", "좋아하는-글들"]
@@ -130,6 +142,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
+    Component.DesktopOnly(Component.ArchiveLink()),
     Component.Explorer({
       defaultOpenFolders: ["개발자 이야기/2026"],
       mapFn: (node) => {
@@ -148,6 +161,7 @@ export const defaultListPageLayout: PageLayout = {
           node.displayName = emojiMap[node.displayName]
         }
       },
+      filterFn: (node) => node.slugSegment !== "archive",
       sortFn: (a, b) => {
         const ARCHIVED = ["디지털노마드", "뒤늦은-퇴사일기"]
         const FOLDER_ORDER = ["아이디어", "개발자-이야기", "여행기억-리터칭", "자작캠핑카", "개이득-산행", "레아아범-육견일기", "좋아하는-글들"]

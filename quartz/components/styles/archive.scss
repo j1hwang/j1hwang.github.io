@@ -1,0 +1,66 @@
+body[data-slug="archive"] hr {
+  display: none;
+}
+
+.archive {
+  margin-top: 1.5rem;
+
+  .archive-count {
+    font-size: 0.85rem;
+    opacity: 0.5;
+    margin-bottom: 1rem;
+  }
+
+  .archive-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .archive-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.45rem 0;
+  }
+
+  .archive-date {
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    opacity: 0.55;
+    min-width: 6rem;
+  }
+
+  .archive-title {
+    flex: 1;
+    font-size: 1rem;
+    background-color: transparent !important;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .archive-category {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    opacity: 0.55;
+  }
+
+  .archive-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+
+    .pagination-btn {
+      background-color: transparent;
+      border-color: var(--gray);
+
+      &:hover:not(.disabled) {
+        background-color: var(--lightgray);
+      }
+    }
+  }
+}
