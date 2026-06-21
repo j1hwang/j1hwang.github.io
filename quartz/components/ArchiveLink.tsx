@@ -17,6 +17,10 @@ ArchiveLink.css = `
   margin-bottom: -1.2rem;
   text-align: right;
 
+  @media (max-width: 600px) {
+    display: none;
+  }
+
   a {
     font-size: 0.65rem;
     color: var(--secondary);
