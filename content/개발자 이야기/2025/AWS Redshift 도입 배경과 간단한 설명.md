@@ -19,7 +19,7 @@ description: 3년간 서비스에서 사용하며 느낀 점 포함
 
 ## 데이터 파이프라인
 1. 다수의 쇼핑몰 DB 데이터를 정기적으로 AWS S3 로 gzip 파일 업로드
-2. S3 -> Redshift 데이터 upsert (Airflow 로 배치 스케쥴 관리)
+2. S3 -> Redshift 데이터 upsert (Airflow 로 배치 스케줄 관리)
 
 
 ## Redshift 가 주는 장점
