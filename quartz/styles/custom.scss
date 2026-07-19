@@ -1,3 +1,86 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+// Carousel
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 1.5rem 0 0;
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.35s ease;
+    aspect-ratio: 4 / 3;
+
+    img {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      margin: 0;
+      display: block;
+    }
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background 0.2s;
+
+    &:hover { background: rgba(0, 0, 0, 0.75); }
+    &.carousel-prev { left: 12px; }
+    &.carousel-next { right: 12px; }
+  }
+
+  .carousel-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 13px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+.carousel-strip {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 6px 0 1.5rem;
+
+  .carousel-thumb {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    margin: 0;
+    flex-shrink: 0;
+
+    &.active, &:hover { opacity: 1; }
+  }
+}
