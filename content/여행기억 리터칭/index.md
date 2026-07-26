@@ -135,4 +135,11 @@ date: 2026-05-10
 
 </details>
 
-🇻🇳 🇮🇩 🇹🇭
+🇻🇳 🇮🇩
+
+<details>
+<summary>🇹🇭</summary>
+
+- [[방콕 색소폰 펍의 풍경]]
+
+</details>
