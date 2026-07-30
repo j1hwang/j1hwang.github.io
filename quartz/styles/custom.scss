@@ -2,6 +2,19 @@
 
 // put your custom CSS here!
 
+// 이미지 포함 p 태그 하단 마진 제거
+p:has(img) {
+  margin-block-end: 0;
+}
+
+p:has(img) + p {
+  margin-block-start: 0;
+}
+
+p > img + em {
+  margin-top: 1.1rem;
+}
+
 // Carousel
 .carousel {
   position: relative;
