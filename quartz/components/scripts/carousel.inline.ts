@@ -11,24 +11,6 @@ document.addEventListener("nav", () => {
     imgs.forEach((img) => track.appendChild(img))
     carousel.appendChild(track)
 
-    // arrows
-    const prev = document.createElement("button")
-    prev.className = "carousel-btn carousel-prev"
-    prev.innerHTML = "&#10094;"
-    prev.ariaLabel = "이전"
-
-    const next = document.createElement("button")
-    next.className = "carousel-btn carousel-next"
-    next.innerHTML = "&#10095;"
-    next.ariaLabel = "다음"
-
-    carousel.appendChild(prev)
-    carousel.appendChild(next)
-
-    // counter badge
-    const counter = document.createElement("div")
-    counter.className = "carousel-counter"
-    carousel.appendChild(counter)
 
     // thumbnail strip
     const strip = document.createElement("div")
@@ -41,21 +23,31 @@ document.addEventListener("nav", () => {
       strip.appendChild(thumb)
       return thumb
     })
-    carousel.after(strip)
+    // caption
+    const captions = imgs.map((img) => img.dataset.caption ?? "")
+    const hasCaption = captions.some((c) => c !== "")
+    const caption = document.createElement("div")
+    caption.className = "carousel-caption"
+
+    if (hasCaption) {
+      carousel.after(caption)
+      caption.after(strip)
+    } else {
+      carousel.after(strip)
+    }
 
     function goTo(idx: number) {
       current = (idx + imgs.length) % imgs.length
       track.style.transform = `translateX(-${current * 100}%)`
-      counter.textContent = `${current + 1} / ${imgs.length}`
-      thumbs.forEach((t, i) => t.classList.toggle("active", i === current))
+thumbs.forEach((t, i) => t.classList.toggle("active", i === current))
+      thumbs[current].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" })
+      if (hasCaption) {
+        caption.textContent = captions[current]
+        caption.style.visibility = captions[current] ? "visible" : "hidden"
+      }
     }
 
     goTo(0)
-
-    const onPrev = () => goTo(current - 1)
-    const onNext = () => goTo(current + 1)
-    prev.addEventListener("click", onPrev)
-    next.addEventListener("click", onNext)
 
     thumbs.forEach((thumb, i) => {
       const handler = () => goTo(i)
@@ -74,8 +66,6 @@ document.addEventListener("nav", () => {
     carousel.addEventListener("touchend", onTouchEnd)
 
     window.addCleanup(() => {
-      prev.removeEventListener("click", onPrev)
-      next.removeEventListener("click", onNext)
       carousel.removeEventListener("touchstart", onTouchStart)
       carousel.removeEventListener("touchend", onTouchEnd)
     })
