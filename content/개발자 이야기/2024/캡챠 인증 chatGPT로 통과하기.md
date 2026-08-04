@@ -12,10 +12,10 @@ description: Tesseract 와 ChatGPT 의 활용
 
 최근 취미로 시작한 개인 개발업무에서 캡챠(CAPTCHA) 인증을 할 일이 생겼다. 캡챠 이미지 예시는 아래와 같다.
 
-![[20241022_captcha_example_1.png]]
-![[20241022_captcha_example_2.png]]
-![[20241022_captcha_example_3.png]]
-![[20241022_captcha_example_4.png]]
+![[20241022_captcha_example_1.png|가로선이 그어진 회색 배경에 숫자 185973이 적힌 캡챠 이미지]]
+![[20241022_captcha_example_2.png|취소선이 그어진 회색 배경에 숫자 300619가 적힌 캡챠 이미지]]
+![[20241022_captcha_example_3.png|가로선이 그어진 회색 배경에 숫자 000595가 적힌 캡챠 이미지]]
+![[20241022_captcha_example_4.png|가로선이 그어진 회색 배경에 숫자 045037이 적힌 캡챠 이미지]]
 
 ### Tesseract
 
@@ -63,7 +63,7 @@ B006-2_.
 
 gpt 모델을 활용하여 OCR 테스트하는 것은 [OpenAI Playground](https://platform.openai.com/playground)에서 해볼 수 있다.
 
-![[20241022_captcha_chatgpt.png]]
+![[20241022_captcha_chatgpt.png|기원님께서 도와주시며 첨부해주신 이미지]]
 _기원님께서 도와주시며 첨부해주신 이미지_
 
 위 스크린샷에서 볼 수 있듯이, gpt-4o 모델을 활용하여 OCR 을 해보니 캡챠 이미지를 체감상 90% 정도의 정확도로 분석한다고 느꼈다 -- 테스트를 많이 해보진 않았다. 주로 실패하는 이미지들을 보니, 숫자 가운데 점이나 선이 그어진 것보다도 두 개의 숫자가 붙어있는 경우가 많아보였다. 확실한 답(label)이 있으니, 캡챠 이미지와 그에 맞는 답들을 갖고서 gpt 모델 학습을 시킬 수 있지 않을까도 생각해봤다.

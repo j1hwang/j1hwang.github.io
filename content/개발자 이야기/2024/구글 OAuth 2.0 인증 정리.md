@@ -9,7 +9,7 @@ description: Resource Owner, Server, Client 간의 동작
 
 오래 전 구글 OAuth 관련 개발을 하며 정리해둔 메모가 있어서 허전한 블로그에 남겨둔다.
 
-![[20240909_google_oauth.png]]
+![[20240909_google_oauth.png|OAuth 인증 흐름 시퀀스 다이어그램 (앱, 사용자, 구글 서버 간의 토큰 요청과 인증 과정)]]
 _https://developers.google.com/identity/protocols/oauth2#webserver_
 
 

@@ -9,6 +9,6 @@ date: 2026-05-10
 
 [[반려견과 동반 산행이 가능한 산 목록]]에서 자세한 내용을 확인해주세요.
   
-![](https://www.youtube.com/watch?v=fDp_lj-WCBs)
+![반려견과 함께 떠나는 등산, 개이랍 산행](https://www.youtube.com/watch?v=fDp_lj-WCBs)
 
 ---
