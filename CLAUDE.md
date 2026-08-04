@@ -64,6 +64,16 @@ Explorer 카테고리 순서 및 archived 구분선은 `quartz.layout.ts`의 `so
 > **카테고리에 대한 한 줄 설명**
 ```
 
+### 동영상 삽입 + 캡션
+
+```html
+<video src="/static/.../파일명.mp4" autoplay loop muted playsinline style="width:100%;"></video><em>캡션 텍스트</em>
+```
+
+- `<source>` 태그 방식 사용 금지, 단일 `<video>` 태그로 통일
+- 캡션은 `</video>` 바로 뒤에 `<em>캡션</em>`으로 붙여쓰기 (줄바꿈 없이 같은 `<p>` 안에 들어와야 함)
+- 캡션 없을 때는 `</video>` 로 끝내면 됨
+
 ### 이미지 단일 + 캡션
 
 ```markdown
