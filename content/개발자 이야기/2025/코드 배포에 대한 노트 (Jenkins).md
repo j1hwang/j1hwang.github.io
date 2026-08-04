@@ -24,7 +24,7 @@ source ~/.bash_profile && cd ~/배포할 프로젝트 && bundle exec cap product
 - `source ~/.bash_profile` : 배포 과정에서 필요한 환경 변수 설정 (export PATH=...)
 - `bundle exec cap production deploy` : Capistrano 루비 gem 을 사용하여 'production' 환경에 맞게 배포
 
-맨 마지막 `cap` 명령어를 보면 deploy 할 환경을 `production` 으로 설정하는데요. 테스트(staging) 환경의 Jenkins 가보시면, 명령어에 추가로 `--trace` 가 붙어있습니다. 테스트 환경 배포 시에는 trace 를 통해 배포 단계를 더 상세히 남깁니다. [capistrano 공식 문서](https://github.com/capistrano/capistrano?tab=readme-ov-file#command-line-usage)에 보면 'trace through task invocations' 라고 설명했네요.
+맨 마지막 `cap` 명령어를 보면 deploy 할 환경을 `production` 으로 설정하는데요. 테스트(staging) 환경의 Jenkins 가보시면, 명령어에 추가로 `--trace` 가 붙어있습니다. 테스트 환경 배포 시에는 trace 를 통해 배포 단계를 더 상세히 남깁니다. [capistrano 공식 문서](https://github.com/capistrano/capistrano?tab=readme-ov-file#command-line-usage)에 보면 'trace through task invocations'라고 설명했네요.
 
 그렇기 때문에,
 

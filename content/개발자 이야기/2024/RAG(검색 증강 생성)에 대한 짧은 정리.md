@@ -13,7 +13,7 @@ description: Future of LLM 을 우리 제품에 녹여내기
 
 ### LLM 의 한계를 넘어서
 
-ChatGPT 출시 당시 많은 사용자에게 신선한 충격을 주며 그 활용성이 무한해보였는데 이후로 많은 단점들이 드러났다. 단점들 중에서는 사실 관계의 오류나 사용자 질문의 맥락을 이해하는데 한계점을 보인다는 점이 있다. 이에 대한 개선으로 RAG 가 떠오르고 있다고 한다. 'LLM 의 미래' 라고 불리고 있는 RAG 는 외부 지식 베이스를 연결하여 언어 모델의 능력을 향상시키는 기술이다.
+ChatGPT 출시 당시 많은 사용자에게 신선한 충격을 주며 그 활용성이 무한해보였는데 이후로 많은 단점들이 드러났다. 단점들 중에서는 사실 관계의 오류나 사용자 질문의 맥락을 이해하는데 한계점을 보인다는 점이 있다. 이에 대한 개선으로 RAG 가 떠오르고 있다고 한다. 'LLM 의 미래'라고 불리고 있는 RAG 는 외부 지식 베이스를 연결하여 언어 모델의 능력을 향상시키는 기술이다.
 
 ![[20241104_rag_flow.png|RAG 동작 흐름도, 질문에서 검색과 응답까지의 과정]]
 _RAG - [https://www.trantorinc.com/blog/what-is-rag-retrieval-augmented-generation](https://www.trantorinc.com/blog/what-is-rag-retrieval-augmented-generation)_

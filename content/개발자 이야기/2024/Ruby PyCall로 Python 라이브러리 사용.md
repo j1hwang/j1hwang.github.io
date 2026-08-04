@@ -9,7 +9,7 @@ tags:
 description: numpy, konlpy 등 Python 라이브러리를 Ruby 코드에서 호출
 ---
 
-### `PyCall` 이란?
+### `PyCall`이란?
 
 회사에서는 거의 대부분 Ruby On Rails(이하 ROR, 레일즈) 기반 프로젝트를 다루다보니, 사용 가능한 라이브러리가 레일즈 gem 에 한정되는데 PyCall 을 사용하면 Ruby(이하 루비) 코드에서 Python 라이브러리를 사용할 수 있다. Pycall 라이브러리의 설명은 아래와 같다. 간단히 파이썬 코드의 ruby wrapper 라고 보면 된다.
 
