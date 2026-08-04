@@ -29,7 +29,7 @@ video {
   .carousel-track {
     display: flex;
     transition: transform 0.35s ease;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: var(--carousel-aspect, 4 / 3);
 
     img {
       flex: 0 0 100%;
