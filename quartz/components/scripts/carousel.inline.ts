@@ -1,30 +1,42 @@
 document.addEventListener("nav", () => {
   document.querySelectorAll<HTMLElement>(".carousel").forEach((carousel) => {
-    const imgs = Array.from(carousel.querySelectorAll<HTMLImageElement>("img"))
-    if (imgs.length < 2) return
+    const items = Array.from(carousel.querySelectorAll<HTMLElement>("img, video"))
+    if (items.length < 2) return
 
     let current = 0
 
     // track
     const track = document.createElement("div")
     track.className = "carousel-track"
-    imgs.forEach((img) => track.appendChild(img))
+    items.forEach((item) => track.appendChild(item))
     carousel.appendChild(track)
-
 
     // thumbnail strip
     const strip = document.createElement("div")
     strip.className = "carousel-strip"
-    const thumbs = imgs.map((img, i) => {
-      const thumb = document.createElement("img")
-      thumb.src = img.src
-      thumb.alt = img.alt
+    const thumbs = items.map((item, i) => {
+      let thumb: HTMLElement
+      if (item.tagName === "VIDEO") {
+        const v = document.createElement("video")
+        v.src = (item as HTMLVideoElement).src
+        v.muted = true
+        v.autoplay = true
+        v.loop = true
+        v.playsInline = true
+        thumb = v
+      } else {
+        const img = document.createElement("img")
+        img.src = (item as HTMLImageElement).src
+        img.alt = (item as HTMLImageElement).alt
+        thumb = img
+      }
       thumb.className = "carousel-thumb" + (i === 0 ? " active" : "")
       strip.appendChild(thumb)
       return thumb
     })
+
     // caption
-    const captions = imgs.map((img) => img.dataset.caption ?? "")
+    const captions = items.map((item) => item.dataset.caption ?? "")
     const hasCaption = captions.some((c) => c !== "")
     const caption = document.createElement("div")
     caption.className = "carousel-caption"
@@ -37,13 +49,20 @@ document.addEventListener("nav", () => {
     }
 
     function goTo(idx: number) {
-      current = (idx + imgs.length) % imgs.length
+      items.forEach((item) => {
+        if (item.tagName === "VIDEO") (item as HTMLVideoElement).pause()
+      })
+      current = (idx + items.length) % items.length
       track.style.transform = `translateX(-${current * 100}%)`
-thumbs.forEach((t, i) => t.classList.toggle("active", i === current))
+      thumbs.forEach((t, i) => t.classList.toggle("active", i === current))
       thumbs[current].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" })
       if (hasCaption) {
         caption.textContent = captions[current]
         caption.style.visibility = captions[current] ? "visible" : "hidden"
+      }
+      const activeItem = items[current]
+      if (activeItem.tagName === "VIDEO") {
+        (activeItem as HTMLVideoElement).play().catch(() => {})
       }
     }
 
