@@ -103,7 +103,14 @@ export class DiagramPanZoom {
     button.textContent = text
     button.className = `${this.classPrefix}-control-button`
     button.addEventListener("click", onClick)
-    window.addCleanup(() => button.removeEventListener("click", onClick))
+    const stopProp = (e: Event) => e.stopPropagation()
+    button.addEventListener("mousedown", stopProp)
+    button.addEventListener("touchstart", stopProp)
+    window.addCleanup(() => {
+      button.removeEventListener("click", onClick)
+      button.removeEventListener("mousedown", stopProp)
+      button.removeEventListener("touchstart", stopProp)
+    })
     return button
   }
 
@@ -167,10 +174,9 @@ export class DiagramPanZoom {
 
     const newScale = Math.min(Math.max(this.scale + delta, this.MIN_SCALE), this.MAX_SCALE)
 
-    // Zoom around center
-    const rect = this.content.getBoundingClientRect()
-    const centerX = rect.width / 2
-    const centerY = rect.height / 2
+    // Zoom around center of the container (viewport), not the scaled content
+    const centerX = this.container.clientWidth / 2
+    const centerY = this.container.clientHeight / 2
 
     const scaleDiff = newScale - this.scale
     this.currentPan.x -= centerX * scaleDiff
@@ -186,14 +192,12 @@ export class DiagramPanZoom {
   }
 
   private resetTransform() {
-    // neutralize any leftover transform (e.g. from a prior open/close cycle,
-    // or a previous DiagramPanZoom instance on the same content element)
-    // before measuring, so the rect reflects the untransformed intrinsic size
     this.content.style.transform = "translate(0px, 0px) scale(1)"
     const target = this.content.firstElementChild as HTMLElement | SVGElement
-    const rect = target.getBoundingClientRect()
-    const width = rect.width
-    const height = rect.height
+    // Use offsetWidth/offsetHeight instead of getBoundingClientRect() to avoid
+    // reading stale scaled dimensions while the CSS transition is still running
+    const width = (target as HTMLElement).offsetWidth
+    const height = (target as HTMLElement).offsetHeight
 
     this.zoomInClicks = 0
     this.scale = 1
