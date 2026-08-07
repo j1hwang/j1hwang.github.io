@@ -37,7 +37,7 @@ new_branch = "release/v#{latest_major_version}.#{latest_minor_version}.#{hotfix_
 # Slack 에 노티
 ```
 
-모든 git tag 목록을 `tag_list_text` 에 받아오고, 정규표현식을 활용해 `v{메이저}.{마이너}.{핫픽스}` 와 같이 메이저/마이너/핫픽스 버전을 얻어온다. 핫픽스 버전에 +1 한다음 새로운 브랜치를 git 에 push 한다.
+모든 git tag 목록을 `tag_list_text` 에 받아오고, 정규표현식을 활용해 `v{메이저}.{마이너}.{핫픽스}` 와 같이 메이저/마이너/핫픽스 버전을 얻어온다. 핫픽스 버전에 +1 한 다음 새로운 브랜치를 git 에 push 한다.
 
 ## Jenkins 에서 Ruby 스크립트 호출
 

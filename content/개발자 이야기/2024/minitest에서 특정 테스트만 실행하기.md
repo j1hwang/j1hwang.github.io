@@ -16,7 +16,7 @@ minitest 를 사용한 ruby 코드 테스트 시 파일 내 특정 테스트만 
 bundle exec rake test TEST=spec/models/test.rb TESTOPTS="-n='/foobar/'"
 ```
 
-그 이외에도 chatGPT 검색해보니 다양한 인자들이 있다고 해서 쓸만한걸 남겨본다.
+그 이외에도 chatGPT 검색해보니 다양한 인자들이 있다고 해서 쓸만한 걸 남겨본다.
 
 - `-e` : 테스트 설명 필터링
   - 예시) `TESTOPTS="-e '/example description/'" ruby your_test_file.rb`

@@ -41,7 +41,7 @@ end
 
 아래쪽 코드를 보면, `deploy:finished` 이후에 이 코드에서 선언한 `app:check_init` 를 실행합니다. Rails 어플리케이션 코드에서 버그가 있는 경우, `execute :ruby` 에서 오류가 발생하고 `cap` 배포는 실패하게 됩니다. 이는 코드 배포는 완료됐는데 Rails 단에서 오류가 나서 실제 서비스가 down 되는 상황을 막기 위함이라 볼 수 있습니다. `cap` 배포 단계에서 실패하면, 기존에 배포돼서 실행되고 있던 어플리케이션에는 영향이 없기 때문입니다.
 
-아무튼, Jenkins 에서의 Console Output 을 살펴보면 아래와 같이 `deploy:finished` 이후 `app:check_init` 가 실행된 것을 확인할 수 있습니다. 이전 글에서 말씀드린대로, `cap` 명령어 실행 시 `--trace` 가 붙어서 실행되는 staging 배포 Jenkins 에서 확인해야 합니다.
+아무튼, Jenkins 에서의 Console Output 을 살펴보면 아래와 같이 `deploy:finished` 이후 `app:check_init` 가 실행된 것을 확인할 수 있습니다. 이전 글에서 말씀드린 대로, `cap` 명령어 실행 시 `--trace` 가 붙어서 실행되는 staging 배포 Jenkins 에서 확인해야 합니다.
 
 ```bash
 # Jenkins Console Output 일부

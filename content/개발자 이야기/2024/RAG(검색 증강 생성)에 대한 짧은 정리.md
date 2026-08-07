@@ -9,7 +9,7 @@ tags:
 description: Future of LLM 을 우리 제품에 녹여내기
 ---
 
-'검색 증강 생성' 이라 불리는 `RAG`(Retrieval Augmented Generation) 에 대해 최근 호기심이 생겨 찾아본 내용을 정리해본다. OpenAI 의 ChatGPT 를 필두로 많은 회사들이 LLM 을 상용화하며 AI 업계의 판도가 바뀌었고, 업계에서 AI 개발을 접근하는 방향도 많이 바뀌었다. 모델을 직접 학습, 개발하던 방식에서 LLM 을 최대한으로 활용하는 방식으로 말이다.
+'검색 증강 생성'이라 불리는 `RAG`(Retrieval Augmented Generation) 에 대해 최근 호기심이 생겨 찾아본 내용을 정리해본다. OpenAI 의 ChatGPT 를 필두로 많은 회사들이 LLM 을 상용화하며 AI 업계의 판도가 바뀌었고, 업계에서 AI 개발을 접근하는 방향도 많이 바뀌었다. 모델을 직접 학습, 개발하던 방식에서 LLM 을 최대한으로 활용하는 방식으로 말이다.
 
 ### LLM 의 한계를 넘어서
 

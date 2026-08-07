@@ -44,4 +44,4 @@ _[How to Create the Viral Talking Animal AI Podcast Videos on Autopilot (No-Code
 결국, 이래저래 많이 결과물을 만들어보며 프롬프트 활용 등의 노하우가 쌓일 필요가 있는 작업으로 보인다. 생각보다 특별한 작업이 필요한 것은 없어서 처음 흥미를 갖고 찾아볼 때보다 흥미가 줄어버렸다. 당장 n8n 서비스 플랜 돈내고 쓰긴 좀 그러니깐 테스트를 해봐야겠다.
 
 ## 기타
-회사 동료분이 알려주셔서 [구글 스터디 잼 X 잇츠 스터디 - 개인 트랙](https://rsvp.withgoogle.com/events/2025-h2-google-cloud-ai-study-jam-kr/individual)을 통해 강의도 들어봤다 -- [Build Real World AI Applications with Gemini and Imagen](https://www.cloudskillsboost.google/course_templates/1076). 항상 AWS 페이지만 보다가 구글 클라우드 UI 에 새로 적응하려니 영 어색했다. n8n 쓰지 않고 LangGraph 로 직접 나노바나나 같은 API 호출하는 식으로 어플리케이션(혹은, 워크플로우) 만들어 볼수도 있겠다. 귀찮겠지만..
+회사 동료분이 알려주셔서 [구글 스터디 잼 X 잇츠 스터디 - 개인 트랙](https://rsvp.withgoogle.com/events/2025-h2-google-cloud-ai-study-jam-kr/individual)을 통해 강의도 들어봤다 -- [Build Real World AI Applications with Gemini and Imagen](https://www.cloudskillsboost.google/course_templates/1076). 항상 AWS 페이지만 보다가 구글 클라우드 UI 에 새로 적응하려니 영 어색했다. n8n 쓰지 않고 LangGraph 로 직접 나노바나나 같은 API 호출하는 식으로 어플리케이션(혹은, 워크플로우) 만들어 볼 수도 있겠다. 귀찮겠지만..
