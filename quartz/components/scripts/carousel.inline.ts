@@ -48,14 +48,14 @@ document.addEventListener("nav", () => {
       carousel.after(strip)
     }
 
-    function goTo(idx: number) {
+    function goTo(idx: number, scrollThumb = true) {
       items.forEach((item) => {
         if (item.tagName === "VIDEO") (item as HTMLVideoElement).pause()
       })
       current = (idx + items.length) % items.length
       track.style.transform = `translateX(-${current * 100}%)`
       thumbs.forEach((t, i) => t.classList.toggle("active", i === current))
-      thumbs[current].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" })
+      if (scrollThumb) thumbs[current].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" })
       if (hasCaption) {
         caption.textContent = captions[current]
         caption.style.visibility = captions[current] ? "visible" : "hidden"
@@ -66,7 +66,7 @@ document.addEventListener("nav", () => {
       }
     }
 
-    goTo(0)
+    goTo(0, false)
 
     thumbs.forEach((thumb, i) => {
       const handler = () => goTo(i)
