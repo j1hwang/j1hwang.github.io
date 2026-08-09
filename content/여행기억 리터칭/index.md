@@ -172,7 +172,12 @@ date: 2026-05-10
 
 </details>
 
-🇻🇳
+<details>
+<summary>🇻🇳</summary>
+
+- [[호의가 계속되면 권리인 줄 안다]]
+
+</details>
 
 <details>
 <summary>🇮🇩</summary>
