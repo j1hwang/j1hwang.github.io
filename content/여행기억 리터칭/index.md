@@ -139,6 +139,13 @@ date: 2026-05-10
 </details>
 
 🇸🇪 🇩🇰 🇳🇴 🇱🇺 🇧🇪 🇭🇺 🇸🇰 🇵🇱 🇪🇸
+<details>
+<summary>🇧🇪</summary>
+
+- [[벨기에 할머니의 포옹과 키스]]
+
+</details>
+
 
 <details>
 <summary>🇨🇳</summary>
