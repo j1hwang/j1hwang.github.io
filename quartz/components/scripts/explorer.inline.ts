@@ -20,6 +20,8 @@ type FolderState = {
   collapsed: boolean
 }
 
+const CATEGORY_POST_LIMIT = 5
+
 let currentExplorerState: Array<FolderState>
 function toggleExplorer(this: HTMLElement) {
   const nearestExplorer = this.closest(".explorer") as HTMLElement
@@ -100,6 +102,8 @@ function createFolderNode(
   currentSlug: FullSlug,
   node: FileTrieNode,
   opts: ParsedOptions,
+  depth: number = 0,
+  data?: Record<string, ContentDetails>,
 ): HTMLLIElement {
   const template = document.getElementById("template-folder") as HTMLTemplateElement
   const clone = template.content.cloneNode(true) as DocumentFragment
@@ -150,11 +154,93 @@ function createFolderNode(
     folderOuter.classList.add("open")
   }
 
-  for (const child of node.children) {
-    const childNode = child.isFolder
-      ? createFolderNode(currentSlug, child, opts)
-      : createFileNode(currentSlug, child)
-    ul.appendChild(childNode)
+  const fileChildren = node.children.filter((c) => !c.isFolder)
+  let folderChildren = node.children.filter((c) => c.isFolder)
+
+  // 개발자-이야기의 연도 서브폴더는 역순(최신 연도 먼저)으로 정렬
+  if (depth === 0 && node.slugSegment === "개발자-이야기") {
+    folderChildren = [...folderChildren].sort((a, b) =>
+      b.displayName.localeCompare(a.displayName, undefined, { numeric: true }),
+    )
+  }
+
+  // 제한 적용 대상: 일반 최상위 카테고리(개발자-이야기 제외) OR 개발자-이야기의 연도 서브폴더
+  const isLimitedSubfolder =
+    node.slug.startsWith("개발자-이야기/") || node.slug.startsWith("여행기억-리터칭/")
+  const shouldLimit =
+    data &&
+    fileChildren.length > CATEGORY_POST_LIMIT &&
+    ((depth === 0 &&
+      node.slugSegment !== "개발자-이야기" &&
+      node.slugSegment !== "여행기억-리터칭" &&
+      node.slugSegment !== "자작캠핑카") ||
+      isLimitedSubfolder)
+
+  if (depth === 0 && node.slugSegment === "자작캠핑카") {
+    const pinned = fileChildren.find(
+      (c) => c.slugSegment === "스타렉스-자작캠핑카-완벽-가이드",
+    )
+    for (const child of folderChildren) {
+      ul.appendChild(createFolderNode(currentSlug, child, opts, depth + 1, data))
+    }
+    if (pinned) ul.appendChild(createFileNode(currentSlug, pinned))
+    if (fileChildren.length > 1) {
+      const moreLi = document.createElement("li")
+      moreLi.className = "explorer-more"
+      const moreA = document.createElement("a")
+      moreA.href = resolveRelative(currentSlug, node.slug as FullSlug)
+      moreA.textContent = "더보기"
+      moreA.addEventListener("click", () => {
+        const onNav = () => {
+          document.removeEventListener("nav", onNav)
+          requestAnimationFrame(() => window.scrollTo(0, document.body.scrollHeight))
+        }
+        document.addEventListener("nav", onNav)
+      })
+      moreLi.appendChild(moreA)
+      ul.appendChild(moreLi)
+    }
+  } else if (shouldLimit) {
+    const getTimestamp = (slug: string): number => {
+      const d = data![slug as FullSlug]?.date
+      if (!d) return 0
+      return new Date(d as unknown as string | number).getTime()
+    }
+
+    const sortedFiles = [...fileChildren].sort(
+      (a, b) => getTimestamp(b.slug) - getTimestamp(a.slug),
+    )
+
+    for (const child of folderChildren) {
+      ul.appendChild(createFolderNode(currentSlug, child, opts, depth + 1, data))
+    }
+    for (const child of sortedFiles.slice(0, CATEGORY_POST_LIMIT)) {
+      ul.appendChild(createFileNode(currentSlug, child))
+    }
+
+    const moreLi = document.createElement("li")
+    moreLi.className = "explorer-more"
+    const moreA = document.createElement("a")
+    moreA.href = resolveRelative(currentSlug, node.slug as FullSlug) + "?page=2"
+    moreA.textContent = "더보기"
+    if (node.slug.startsWith("여행기억-리터칭/")) {
+      moreA.addEventListener("click", () => {
+        const onNav = () => {
+          document.removeEventListener("nav", onNav)
+          requestAnimationFrame(() => window.scrollTo(0, document.body.scrollHeight))
+        }
+        document.addEventListener("nav", onNav)
+      })
+    }
+    moreLi.appendChild(moreA)
+    ul.appendChild(moreLi)
+  } else {
+    for (const child of [...folderChildren, ...fileChildren]) {
+      const childNode = child.isFolder
+        ? createFolderNode(currentSlug, child, opts, depth + 1, data)
+        : createFileNode(currentSlug, child)
+      ul.appendChild(childNode)
+    }
   }
 
   return li
@@ -225,7 +311,7 @@ async function setupExplorer(currentSlug: FullSlug) {
     const fragment = document.createDocumentFragment()
     for (const child of trie.children) {
       const node = child.isFolder
-        ? createFolderNode(currentSlug, child, opts)
+        ? createFolderNode(currentSlug, child, opts, 0, data)
         : createFileNode(currentSlug, child)
 
       fragment.appendChild(node)

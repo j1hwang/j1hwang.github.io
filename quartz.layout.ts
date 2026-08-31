@@ -45,7 +45,7 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.DesktopOnly(Component.ArchiveLink()),
     Component.Explorer({
-      defaultOpenFolders: ["개발자 이야기/2026"],
+      defaultOpenFolders: ["개발자-이야기/2026"],
       mapFn: (node) => {
         const emojiMap: Record<string, string> = {
           "레아아범 육견일기": "🐶 레아아범 육견일기",
@@ -144,7 +144,7 @@ export const defaultListPageLayout: PageLayout = {
     }),
     Component.DesktopOnly(Component.ArchiveLink()),
     Component.Explorer({
-      defaultOpenFolders: ["개발자 이야기/2026"],
+      defaultOpenFolders: ["개발자-이야기/2026"],
       mapFn: (node) => {
         const emojiMap: Record<string, string> = {
           "레아아범 육견일기": "🐶 레아아범 육견일기",

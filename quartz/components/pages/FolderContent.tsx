@@ -32,6 +32,8 @@ export default ((opts?: Partial<FolderContentOptions>) => {
   const FolderContent: QuartzComponent = (props: QuartzComponentProps) => {
     const { tree, fileData, allFiles, cfg } = props
 
+    const HIDE_SUBFOLDERS_IN = new Set(["여행기억-리터칭"])
+
     const trie = (props.ctx.trie ??= trieFromAllFiles(allFiles))
     const folder = trie.findNode(fileData.slug!.split("/"))
     if (!folder) {
@@ -46,7 +48,7 @@ export default ((opts?: Partial<FolderContentOptions>) => {
             return node.data
           }
 
-          if (node.isFolder && options.showSubfolders) {
+          if (node.isFolder && options.showSubfolders && !HIDE_SUBFOLDERS_IN.has(folder.slugSegment)) {
             // folders that dont have data need synthetic files
             const getMostRecentDates = (): QuartzPluginData["dates"] => {
               let maybeDates: QuartzPluginData["dates"] | undefined = undefined
