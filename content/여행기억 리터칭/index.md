@@ -129,7 +129,12 @@ date: 2026-05-10
 
 </details>
 
-🇱🇻
+<details>
+<summary>🇱🇻</summary>
+
+- [[리가의 올드타운에서]]
+
+</details>
 
 <details>
 <summary>🇷🇺</summary>
