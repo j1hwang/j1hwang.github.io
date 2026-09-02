@@ -138,7 +138,15 @@ date: 2026-05-10
 
 </details>
 
-🇸🇪 🇩🇰 🇳🇴 🇱🇺 🇧🇪 🇭🇺 🇸🇰 🇵🇱 🇪🇸
+🇸🇪 🇩🇰 🇳🇴
+
+<details>
+<summary>🇱🇺</summary>
+
+- [[기억에서 삭제된 룩셈부르크]]
+
+</details>
+
 <details>
 <summary>🇧🇪</summary>
 
