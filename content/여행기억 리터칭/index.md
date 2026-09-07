@@ -159,6 +159,16 @@ date: 2026-05-10
 
 </details>
 
+🇭🇺
+
+<details>
+<summary>🇸🇰</summary>
+
+- [[스쳐간 브라티슬라바]]
+
+</details>
+
+🇵🇱 🇪🇸
 
 <details>
 <summary>🇨🇳</summary>
