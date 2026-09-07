@@ -177,7 +177,23 @@ date: 2026-05-10
 
 </details>
 
-🇯🇵 🇭🇰 🇲🇴 🇵🇹 🇮🇪 🇵🇪 🇧🇴 🇨🇱 🇦🇷 🇺🇾 🇵🇾 🇧🇷 🇪🇨
+<details>
+<summary>🇯🇵</summary>
+
+- [[호스텔에 가기 좋은 나이]]
+
+</details>
+
+🇭🇰 🇲🇴
+
+<details>
+<summary>🇵🇹</summary>
+
+- [[리스본과 포르투에서의 휴식]]
+
+</details>
+
+🇮🇪 🇵🇪 🇧🇴 🇨🇱 🇦🇷 🇺🇾 🇵🇾 🇧🇷 🇪🇨
 
 <details>
 <summary>🇨🇴</summary>
