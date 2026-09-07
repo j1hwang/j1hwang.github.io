@@ -84,6 +84,7 @@ export default (() => {
 
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
+        {fileData.slug?.startsWith("tags/") && <meta name="robots" content="noindex" />}
         <meta name="generator" content="Quartz" />
         <meta name="naver-site-verification" content="ac885b6fc79aeb9ce5846ef2ad9bb22b74ec0b9d" />
 
